@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="ToDoList">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskList</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dist/estilos.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/plugins/angular-local-storage.min.js"></script>
+    <script src="js/toDoController.js"></script>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="box" ng-controller="ToDoController">
+                <h1>To Do List</h1>
+                <ul>
+                    <li  ng-repeat="actividad in todo">{{actividad.fecha | date : 'short'}} - {{actividad.descripcion}}</li>
+                </ul>
+                <form ng-submit="addActv()">
+                    <input type="text" name="descripcion" ng-model="newActv.descripcion"><br>
+                    <input type="date" name="datetime" ng-model="newActv.fecha"><br>
+                    <input type="submit" value="Añadir">
+                    <input type="text" value="Limpiar" ng-click='todo = []'>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

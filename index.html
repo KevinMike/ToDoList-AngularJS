@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
+    <link rel="stylesheet" href="css/dist/estilos.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="js/dist/controller.min.js"></script>
+</head>
+<body ng-app="restaurantApp">
+<section>
+    <div class="container">
+        <div class="row" ng-controller="firstController">
+            <h1>Primer Controllador </h1>
+            <input type="text" ng-model="nuevoComentario.comentario" placeholder="Comentario"><br>
+            <input type="text" ng-model="nuevoComentario.username" placeholder="Username"><br>
+            <button ng-click="agregarComentario()">Agregar</button>
+            <h3>Bienvenido {{nombre}}</h3>
+            <li ng-repeat="comentario in comentarios">
+                {{comentario.username}} - {{comentario.comentario}}
+            </li>
+        </div>
+        <div class="row" ng-controller="ajaxController">
+            <h1>Agregar controlador</h1>
+            <input type="text" name="" ng-model="newPost.title">
+            <input type="text" ng-model="newPost.body">
+            <button ng-click="addPost()">Enviar</button>
+            <li ng-repeat="post in posts">
+                <h2>{{$index + 1}} {{post.title}}</h2>
+                <p>{{post.body}}</p>
+            </li>
+        </div>
+    </div>
+</section>
+</body>
+</html>
